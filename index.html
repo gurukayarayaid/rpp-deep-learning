@@ -273,6 +273,20 @@
     .reveal { opacity: 1; transform: none; transition: none; }
   }
 
+  /* ---------- tombol cetak ---------- */
+  .print-btn {
+    display: inline-flex; align-items: center; gap: .45rem;
+    font-family: var(--sans); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink); background: transparent;
+    border: 1px solid var(--line-strong); border-radius: 2px;
+    padding: .5rem .85rem; cursor: pointer; white-space: nowrap;
+    transition: background .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .print-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .print-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .print-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+  .print-head { display: none; }
+
   /* ---------- responsive ---------- */
   @media (max-width: 980px) {
     .hero-grid { grid-template-columns: 1fr; align-items: start; }
@@ -288,12 +302,95 @@
     .cards, .reflect-grid, .transfer, .timeline, .checklist { grid-template-columns: 1fr; }
     .nav-inner { flex-direction: column; align-items: flex-start; gap: .55rem; padding-block: .75rem; }
     .nav-links { gap: 1.1rem; width: 100%; padding-bottom: .15rem; }
+    .print-btn { margin-top: .2rem; }
     .hero { padding-top: 2.6rem; }
     th, td { padding: .85rem 1rem; }
   }
   @media print {
-    .nav, .progress, .reveal { opacity: 1 !important; transform: none !important; }
-    body::before { display: none; }
+    @page { size: A4; margin: 14mm; }
+    html, body { background: #fff !important; color: #000; font-size: 10pt; line-height: 1.5; }
+    body::before, .nav, .progress, footer, .print-btn, .hero-meta { display: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .wrap { max-width: none; padding-inline: 0; }
+
+    .print-head { display: block; border-bottom: 1.5pt solid #000; padding-bottom: 6pt; margin-bottom: 14pt; }
+    .print-head p { margin: 0; }
+    .print-head .ph-title { font-family: var(--serif); font-size: 16pt; line-height: 1.15; }
+    .print-head .ph-sub { font-size: 8.5pt; color: #444; margin-top: 2pt; }
+
+    .hero { padding-block: 0 14pt; break-inside: avoid; }
+    .hero-grid { grid-template-columns: 1fr; gap: 10pt; align-items: start; }
+    h1 { font-size: 24pt; line-height: 1.02; }
+    .hero-lead { font-size: 9.5pt; margin-top: 8pt; max-width: none; }
+    .eyebrow { margin-bottom: 4pt; font-size: 7.5pt; }
+    .quote-card { padding: 9pt 11pt; border-color: #bbb; break-inside: avoid; }
+    .quote-card .mark { font-size: 20pt; margin-bottom: 2pt; }
+    .quote-card p { font-size: 10.5pt; margin-bottom: 3pt; }
+    .quote-card small { font-size: 7pt; }
+
+    .intro { padding-block: 12pt; }
+    .intro-grid { grid-template-columns: .6fr 1.4fr; gap: 12pt; }
+    .intro h2 { font-size: 14pt; }
+    .intro p, .section-lead { font-size: 9pt; color: #222; }
+    .intro p:last-child { margin-bottom: 0; }
+
+    .section { padding-block: 14pt; break-inside: auto; }
+    .section + .section { border-top: .5pt solid #bbb; }
+    .section-head { grid-template-columns: 30pt 1fr; gap: 8pt; margin-bottom: 10pt; break-inside: avoid; }
+    .sec-num { font-size: 18pt; }
+    .section h2 { font-size: 16pt; margin-bottom: 4pt; }
+
+    .cards { grid-template-columns: 1fr 1fr; gap: 7pt; }
+    .card { padding: 8pt 9pt; border-color: #bbb; break-inside: avoid; }
+    .card:hover { transform: none; border-color: #bbb; }
+    .card-id { font-size: 6.5pt; margin-bottom: 3pt; }
+    .card h3 { font-size: 12pt; margin-bottom: 3pt; }
+    .card > p { font-size: 8.5pt; margin-bottom: 5pt; }
+    .label { font-size: 6.5pt; margin-bottom: 3pt; }
+    .example { padding-top: 5pt; }
+    .example ul { font-size: 8.2pt; padding-left: 11pt; }
+    .example li { margin-bottom: 2pt; }
+    .outcome { font-size: 7.5pt; margin-top: 6pt; }
+    .prompt-list li { font-size: 10pt; padding: 4pt 0; }
+
+    .transfer { grid-template-columns: 1fr 1fr; gap: 14pt; padding: 10pt; border-color: #bbb; break-inside: avoid; }
+    .transfer h3 { font-size: 12pt; margin-bottom: 4pt; }
+    .steps li { font-size: 8.5pt; margin-bottom: 4pt; padding-left: 16pt; }
+    .steps li::before { width: 11pt; height: 11pt; font-size: 6pt; }
+
+    .ex-block + .ex-block { margin-top: 0; padding-top: 14pt; }
+    .ex-head { break-inside: avoid; break-after: avoid; margin-bottom: 7pt; }
+    .ex-head h3 { font-size: 13.5pt; }
+    .ex-head .ex-sub { font-size: 8pt; margin-top: 3pt; }
+
+    .table-wrap { overflow: visible; border-color: #bbb; }
+    table { min-width: 0; font-size: 8pt; }
+    caption { padding: 7pt 8pt 4pt; font-size: 7pt; }
+    th, td { padding: 5pt 7pt; border-color: #ccc; }
+    thead th { font-size: 6.5pt; }
+    tbody th small { font-size: 7pt; }
+    thead { display: table-header-group; }
+    tr { break-inside: avoid; }
+    tbody tr:nth-child(even) { background: #f4f4f4 !important; }
+
+    .timeline { gap: 8pt; }
+    .phase { padding-top: 5pt; break-inside: avoid; }
+    .phase span { font-size: 6.5pt; }
+    .phase h4 { font-size: 10.5pt; margin: 2pt 0 3pt; }
+    .phase p { font-size: 8pt; }
+    .note { padding: 7pt 9pt; margin-top: 8pt; border-color: #b7c4b8; break-inside: avoid; }
+    .note p { font-size: 8pt; }
+    .note strong { font-size: 6.5pt; }
+
+    .checklist { grid-template-columns: 1fr 1fr; gap: 0 14pt; }
+    .checklist li { font-size: 8.5pt; padding-block: 3.5pt; break-inside: avoid; }
+
+    .closing { padding-block: 14pt; break-inside: avoid; }
+    .closing p.kicker { font-size: 7pt; }
+    .closing blockquote { font-size: 17pt; margin-top: 6pt; }
+
+    a { text-decoration: none; color: inherit; }
+    h1, h2, h3, h4, caption { break-after: avoid; }
   }
 </style>
 </head>
@@ -310,10 +407,19 @@
       <a href="#kelas3">Kelas 3 SD</a>
       <a href="#catatan">Catatan</a>
     </nav>
+    <button class="print-btn" type="button" id="printBtn" aria-label="Cetak halaman ini atau simpan sebagai PDF">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg>
+      Cetak / PDF
+    </button>
   </div>
 </header>
 
 <main id="top">
+
+  <div class="wrap print-head" aria-hidden="true">
+    <p class="ph-title">Tiga Tujuan Pembelajaran dalam RPP Deep Learning</p>
+    <p class="ph-sub">Ringkasan untuk lampiran RPP · Kelas 3 SD · gurukayarayaid.github.io/rpp-deep-learning</p>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -821,6 +927,10 @@
 </footer>
 
 <script>
+  // cetak / simpan PDF
+  var printBtn = document.getElementById('printBtn');
+  if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
+
   // progress bar
   var bar = document.getElementById('progress');
   function onScroll() {
