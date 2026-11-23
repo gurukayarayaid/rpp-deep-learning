@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tiga Tujuan Pembelajaran dalam RPP Deep Learning</title>
+<meta name="description" content="Penjelasan rinci tiga macam tujuan pembelajaran dalam RPP deep learning — tujuan pemahaman, tujuan aplikasi, serta refleksi dan tindak lanjut — lengkap dengan contoh penerapan di kelas 3 SD." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --paper: #fffefa;
+    --ink: #17160f;
+    --muted: #6d685c;
+    --line: #e2ded2;
+    --line-strong: #cdc7b7;
+    --accent: #1f4d3d;
+    --accent-soft: #e9efe9;
+    --clay: #b0603a;
+    --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    --pad: clamp(1.25rem, 4vw, 3rem);
+    --max: 1140px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.7;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body::before {
+    /* halus: tekstur kertas tipis */
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: .5;
+    background-image: radial-gradient(rgba(23,22,15,.045) .5px, transparent .5px);
+    background-size: 4px 4px;
+  }
+  main, header, footer { position: relative; z-index: 1; }
+
+  a { color: inherit; }
+  p { margin: 0 0 1rem; }
+  h1, h2, h3, h4 { font-weight: 400; margin: 0; letter-spacing: -.01em; }
+
+  .wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--pad); }
+
+  /* ---------- progress + nav ---------- */
+  .progress {
+    position: fixed; top: 0; left: 0; height: 2px; width: 0;
+    background: var(--accent); z-index: 60; transition: width .1s linear;
+  }
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px) saturate(1.2);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+    padding-block: .95rem;
+  }
+  .brand {
+    display: flex; align-items: center; gap: .6rem;
+    font-size: .78rem; letter-spacing: .16em; text-transform: uppercase;
+    font-weight: 500; text-decoration: none; white-space: nowrap;
+  }
+  .brand span.dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--accent); display: inline-block;
+  }
+  .nav-links { display: flex; gap: 1.6rem; overflow-x: auto; scrollbar-width: none; }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a {
+    font-size: .78rem; letter-spacing: .06em; color: var(--muted);
+    text-decoration: none; white-space: nowrap; padding-block: .3rem;
+    border-bottom: 1px solid transparent; transition: color .2s, border-color .2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ---------- hero ---------- */
+  .hero { padding-block: clamp(3.5rem, 9vw, 7.5rem) clamp(2.5rem, 5vw, 4rem); }
+  .eyebrow {
+    font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500; margin: 0 0 1.4rem;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.55fr .85fr; gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: end;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.9rem, 7vw, 5.4rem);
+    line-height: .98; letter-spacing: -.025em;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-lead {
+    margin-top: 2rem; max-width: 46ch; font-size: 1.06rem; color: #3d3a31;
+  }
+  .hero-meta {
+    margin-top: 2.4rem; display: flex; flex-wrap: wrap; gap: .5rem 1.6rem;
+    font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: .55rem; }
+  .hero-meta i { width: 16px; height: 1px; background: var(--line-strong); display: inline-block; }
+
+  .quote-card {
+    background: var(--paper); border: 1px solid var(--line);
+    padding: 1.9rem 1.8rem 1.6rem; border-radius: 3px;
+  }
+  .quote-card .mark { font-family: var(--serif); font-size: 3rem; line-height: .6; color: var(--clay); display: block; margin-bottom: .7rem; }
+  .quote-card p {
+    font-family: var(--serif); font-size: 1.32rem; line-height: 1.35; margin: 0 0 .9rem;
+  }
+  .quote-card small { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+  /* ---------- intro strip ---------- */
+  .intro { border-top: 1px solid var(--line); padding-block: clamp(2.5rem, 5vw, 4rem); }
+  .intro-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(1.5rem, 5vw, 4rem); }
+  .intro h2 { font-family: var(--serif); font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.12; }
+  .intro p { color: #3d3a31; max-width: 60ch; }
+
+  /* ---------- sections ---------- */
+  .section { padding-block: clamp(3.5rem, 7vw, 6rem); }
+  .section + .section { border-top: 1px solid var(--line); }
+  .section-head {
+    display: grid; grid-template-columns: 120px 1fr; gap: clamp(1rem, 4vw, 2.5rem);
+    margin-bottom: clamp(2.2rem, 4vw, 3.4rem);
+  }
+  .sec-num {
+    font-family: var(--serif); font-size: clamp(2.6rem, 5vw, 3.6rem);
+    line-height: 1; color: var(--clay); letter-spacing: -.02em;
+  }
+  .section h2 {
+    font-family: var(--serif); font-size: clamp(2rem, 4.4vw, 3.2rem);
+    line-height: 1.04; letter-spacing: -.02em; margin-bottom: .9rem;
+  }
+  .section h2 em { font-style: italic; color: var(--accent); }
+  .section-lead { max-width: 62ch; color: #3d3a31; margin: 0; }
+
+  .cards { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
+  .card {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 3px;
+    padding: 1.8rem 1.6rem 1.5rem; display: flex; flex-direction: column;
+    transition: border-color .25s ease, transform .25s ease;
+  }
+  .card:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+  .card-id {
+    font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin-bottom: .9rem;
+  }
+  .card h3 { font-family: var(--serif); font-size: 1.6rem; line-height: 1.1; margin-bottom: .7rem; }
+  .card > p { font-size: .95rem; color: #3d3a31; }
+  .example {
+    margin-top: auto; padding-top: 1rem; border-top: 1px dashed var(--line-strong);
+  }
+  .label {
+    display: block; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--clay); font-weight: 600; margin-bottom: .6rem;
+  }
+  .example ul { margin: 0; padding-left: 1.1rem; font-size: .92rem; color: #3d3a31; }
+  .example li { margin-bottom: .45rem; }
+  .example li::marker { color: var(--line-strong); }
+
+  .outcome {
+    margin: 1.1rem 0 0; font-size: .82rem; color: var(--muted);
+    display: flex; gap: .5rem; align-items: baseline;
+  }
+  .outcome b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- application section extra ---------- */
+  .note {
+    margin-top: 1.6rem; background: var(--accent-soft); border: 1px solid #d8e2d9;
+    border-radius: 3px; padding: 1.4rem 1.6rem; display: grid;
+    grid-template-columns: 150px 1fr; gap: 1.2rem; align-items: start;
+  }
+  .note strong { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); padding-top: .25rem; }
+  .note p { margin: 0; font-size: .95rem; color: #2f3d34; }
+
+  /* ---------- reflection ---------- */
+  .reflect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .reflect-grid .card h3 { margin-bottom: .8rem; }
+  .prompt-list { list-style: none; margin: 0; padding: 0; }
+  .prompt-list li {
+    font-family: var(--serif); font-size: 1.28rem; line-height: 1.3;
+    padding: .85rem 0; border-bottom: 1px solid var(--line);
+  }
+  .prompt-list li:last-child { border-bottom: 0; }
+  .prompt-list span { color: var(--clay); margin-right: .45rem; }
+
+  .transfer {
+    margin-top: 1rem; border: 1px solid var(--line); background: var(--paper);
+    padding: clamp(1.6rem, 4vw, 3rem); display: grid;
+    grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
+  }
+  .transfer h3 { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.1; margin-bottom: .8rem; }
+  .steps { counter-reset: s; list-style: none; margin: 0; padding: 0; font-size: .95rem; }
+  .steps li { position: relative; padding-left: 2.2rem; margin-bottom: .9rem; color: #3d3a31; }
+  .steps li::before {
+    counter-increment: s; content: counter(s);
+    position: absolute; left: 0; top: .1rem; width: 1.4rem; height: 1.4rem;
+    border: 1px solid var(--line-strong); border-radius: 50%;
+    display: grid; place-items: center; font-size: .7rem; color: var(--muted);
+  }
+
+  /* ---------- table ---------- */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); background: var(--paper); }
+  table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: .93rem; }
+  caption { caption-side: top; text-align: left; padding: 1.2rem 1.4rem .6rem; color: var(--muted); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
+  th, td { text-align: left; padding: 1.05rem 1.4rem; border-top: 1px solid var(--line); vertical-align: top; }
+  thead th {
+    font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; border-top: 0;
+  }
+  tbody th { font-weight: 500; width: 24%; }
+  tbody th small { display: block; color: var(--muted); font-weight: 400; font-size: .78rem; margin-top: .2rem; letter-spacing: 0; text-transform: none; }
+  tbody tr:nth-child(even) { background: #fbf9f4; }
+
+  .timeline { margin-top: 1.2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .phase { border-top: 2px solid var(--ink); padding-top: 1rem; }
+  .phase span { font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--clay); }
+  .phase h4 { font-family: var(--serif); font-size: 1.35rem; margin: .35rem 0 .5rem; }
+  .phase p { font-size: .9rem; color: #3d3a31; margin: 0; }
+
+  /* ---------- checklist ---------- */
+  .checklist { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem 2.5rem; list-style: none; margin: 0; padding: 0; }
+  .checklist li { display: flex; gap: .8rem; font-size: .95rem; color: #3d3a31; padding-block: .55rem; border-bottom: 1px solid var(--line); }
+  .checklist li::before { content: "—"; color: var(--accent); }
+
+  /* ---------- closing ---------- */
+  .closing { border-top: 1px solid var(--line); padding-block: clamp(4rem, 8vw, 7rem); text-align: center; }
+  .closing p.kicker { font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+  .closing blockquote {
+    font-family: var(--serif); font-size: clamp(1.9rem, 4.5vw, 3.3rem);
+    line-height: 1.1; letter-spacing: -.02em; max-width: 22ch; margin: 1.4rem auto 0;
+  }
+  .closing blockquote em { font-style: italic; color: var(--accent); }
+
+  footer { border-top: 1px solid var(--line); padding-block: 2rem; font-size: .8rem; color: var(--muted); }
+  .foot-inner { display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; }
+
+  /* ---------- reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 980px) {
+    .hero-grid { grid-template-columns: 1fr; align-items: start; }
+    .cards { grid-template-columns: 1fr 1fr; }
+    .cards .card:last-child { grid-column: 1 / -1; }
+    .intro-grid { grid-template-columns: 1fr; }
+    .section-head { grid-template-columns: 1fr; gap: .6rem; }
+    .sec-num { font-size: 1.6rem; }
+    .note { grid-template-columns: 1fr; gap: .4rem; }
+  }
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    .cards, .reflect-grid, .transfer, .timeline, .checklist { grid-template-columns: 1fr; }
+    .nav-inner { flex-direction: column; align-items: flex-start; gap: .55rem; padding-block: .75rem; }
+    .nav-links { gap: 1.1rem; width: 100%; padding-bottom: .15rem; }
+    .hero { padding-top: 2.6rem; }
+    th, td { padding: .85rem 1rem; }
+  }
+  @media print {
+    .nav, .progress, .reveal { opacity: 1 !important; transform: none !important; }
+    body::before { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span> RPP · Deep Learning</a>
+    <nav class="nav-links" aria-label="Navigasi bagian">
+      <a href="#pemahaman">01 Pemahaman</a>
+      <a href="#aplikasi">02 Aplikasi</a>
+      <a href="#refleksi">03 Refleksi</a>
+      <a href="#kelas3">Kelas 3 SD</a>
+      <a href="#catatan">Catatan</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Kerangka Tujuan Pembelajaran</p>
+      <div class="hero-grid">
+        <div>
+          <h1>Tiga tujuan pembelajaran dalam RPP <em>deep learning</em>.</h1>
+          <p class="hero-lead">
+            Pembelajaran mendalam tidak berhenti pada “tahu”, tetapi bergerak sampai “bisa”, “memaknai”,
+            dan “berlanjut”. Tiga tujuan di bawah ini memetakan perjalanan itu — dari pemahaman,
+            ke aplikasi, lalu ke refleksi dan tindak lanjut.
+          </p>
+          <div class="hero-meta">
+            <span><i></i> Tujuan Pemahaman</span>
+            <span><i></i> Tujuan Aplikasi</span>
+            <span><i></i> Refleksi &amp; Tindak Lanjut</span>
+          </div>
+        </div>
+
+        <aside class="quote-card">
+          <span class="mark" aria-hidden="true">“</span>
+          <p>Apa yang saya bisa hari ini? Apa yang belum saya bisa hari ini?</p>
+          <small>Pertanyaan refleksi peserta didik</small>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="wrap intro-grid reveal">
+      <div>
+        <p class="eyebrow">Mengapa tiga tujuan?</p>
+        <h2>Satu kompetensi, tiga lapis kedalaman.</h2>
+      </div>
+      <div>
+        <p>
+          RPP dengan pendekatan <em>deep learning</em> tidak hanya menuliskan apa yang harus diketahui
+          peserta didik. Ia merancang pengalaman belajar yang membuat pengetahuan itu bermakna
+          (berkesadaran), dapat dipakai pada situasi baru (bermakna), dan mengubah cara berpikir
+          serta bersikap (menggembirakan).
+        </p>
+        <p>
+          Karena itu tujuan pembelajaran dirumuskan dalam tiga kelompok yang saling menopang.
+          Ketiganya bukan tingkatan yang harus dituntaskan berurutan dalam satu pertemuan, melainkan
+          tiga sudut pandang yang bersama-sama membentuk satu pembelajaran yang utuh.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 PEMAHAMAN -->
+  <section class="section" id="pemahaman">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="sec-num">01</span>
+        <div>
+          <p class="eyebrow">Tujuan Pemahaman</p>
+          <h2>Memahami <em>maknanya</em>, bukan hanya bunyinya.</h2>
+          <p class="section-lead">
+            Tujuan pemahaman mengarahkan peserta didik untuk mengerti isi, cara kerja, dan nilai dari
+            apa yang dipelajari. Pemahaman yang baik membuat peserta didik mampu menjelaskan dengan
+            bahasanya sendiri, bukan sekadar mengulang kalimat buku.
+          </p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <span class="card-id">1a · Materi Konten</span>
+          <h3>Tujuan Materi Konten</h3>
+          <p>
+            Berkenaan dengan definisi, fakta, konsep, dan prinsip. Peserta didik diarahkan untuk
+            mengetahui <em>apa</em> sesuatu itu dan mengapa hal itu demikian.
+          </p>
+          <div class="example">
+            <span class="label">Contoh kelas 3 SD</span>
+            <ul>
+              <li>IPAS: menjelaskan pengertian wujud benda padat, cair, dan gas, lalu memberi dua contoh untuk tiap wujud.</li>
+              <li>Matematika: menjelaskan arti pecahan ½, ⅓, dan ¼ sebagai bagian dari satu kesatuan utuh.</li>
+              <li>Bahasa Indonesia: menyebutkan ciri-ciri kalimat tanya dan membedakannya dengan kalimat berita.</li>
+            </ul>
+          </div>
+          <p class="outcome"><b>Bukti belajar:</b> peserta didik dapat menuturkan definisi dengan bahasa sendiri dan memberi contoh yang tepat.</p>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-id">1b · Prosedur</span>
+          <h3>Tujuan Prosedur</h3>
+          <p>
+            Berkenaan dengan langkah, urutan, dan keterampilan. Peserta didik memahami
+            <em>bagaimana</em> sesuatu dikerjakan dengan benar dan mengapa urutannya penting.
+          </p>
+          <div class="example">
+            <span class="label">Contoh kelas 3 SD</span>
+            <ul>
+              <li>Matematika: menyusun langkah perkalian dua angka, dari satuan ke puluhan, dengan cara bersusun.</li>
+              <li>Bahasa Indonesia: mengikuti tahapan menulis paragraf — menentukan ide, menyusun kalimat, memeriksa ejaan.</li>
+              <li>Seni: memahami urutan membuat kolase: menyiapkan bahan, menyusun pola, lalu menempel.</li>
+            </ul>
+          </div>
+          <p class="outcome"><b>Bukti belajar:</b> peserta didik dapat melakukan langkah-langkah secara mandiri dan menjelaskan alasan tiap langkah.</p>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-id">1c · Karakter</span>
+          <h3>Tujuan Karakter</h3>
+          <p>
+            Berkenaan dengan nilai dan sikap: jujur, mandiri, gotong royong, disiplin, dan bernalar
+            kritis. Karakter tidak diajarkan lewat ceramah, tetapi lewat kebiasaan di dalam kelas.
+          </p>
+          <div class="example">
+            <span class="label">Contoh kelas 3 SD</span>
+            <ul>
+              <li>Gotong royong: berbagi tugas dalam kelompok saat membuat proyek kelas.</li>
+              <li>Kejujuran: mengerjakan tugas sendiri dan berterus terang bila belum memahami.</li>
+              <li>Kemandirian: menyiapkan alat tulis dan merapikan meja tanpa diminta.</li>
+            </ul>
+          </div>
+          <p class="outcome"><b>Bukti belajar:</b> perilaku yang tampak berulang dalam kegiatan belajar, bukan sekadar hafalan nama nilai.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 APLIKASI -->
+  <section class="section" id="aplikasi">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="sec-num">02</span>
+        <div>
+          <p class="eyebrow">Tujuan Aplikasi</p>
+          <h2>Dari <em>tahu</em> menjadi <em>dapat digunakan</em>.</h2>
+          <p class="section-lead">
+            Tujuan aplikasi memastikan pengetahuan tidak berhenti di kepala. Peserta didik
+            menggunakannya pada situasi nyata di sekitarnya, lalu menganalisis mengapa cara itu
+            berhasil atau gagal.
+          </p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <span class="card-id">2a · Penerapan</span>
+          <h3>Tujuan Penerapan</h3>
+          <p>
+            Peserta didik menggunakan konsep atau prosedur yang sudah dipahami untuk menyelesaikan
+            tugas pada situasi yang mirip dengan contoh. Fokusnya: melakukan dengan benar dan percaya diri.
+          </p>
+          <div class="example">
+            <span class="label">Contoh kelas 3 SD</span>
+            <ul>
+              <li>Menghitung total harga tiga buku tulis di kantin menggunakan perkalian.</li>
+              <li>Mengukur panjang dan lebar meja kelas, lalu menyebutkan satuannya.</li>
+              <li>Menuliskan undangan sederhana untuk acara kelas dengan kalimat yang lengkap.</li>
+              <li>Membagi selembar kertas menjadi empat bagian sama besar untuk menjelaskan pecahan ¼.</li>
+            </ul>
+          </div>
+          <p class="outcome"><b>Bukti belajar:</b> hasil kerja yang benar pada soal cerita atau tugas nyata yang belum persis sama dengan contoh.</p>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-id">2b · Analisis</span>
+          <h3>Tujuan Analisis</h3>
+          <p>
+            Peserta didik memilah, membandingkan, mencari hubungan sebab–akibat, menemukan pola,
+            dan menilai. Di sinilah berpikir kritis mulai terlatih sejak kelas rendah.
+          </p>
+          <div class="example">
+            <span class="label">Contoh kelas 3 SD</span>
+            <ul>
+              <li>Membandingkan dua cara menyelesaikan 24 × 3: cara bersusun dan cara menjumlah berulang — mana yang lebih cepat, mengapa?</li>
+              <li>Mencari satu kesalahan pada contoh soal yang sengaja dibuat keliru, lalu menjelaskan letak salahnya.</li>
+              <li>Mengelompokkan benda di kelas menurut wujudnya dan menjelaskan alasan pengelompokan.</li>
+              <li>Mendiskusikan mengapa tanaman di dekat jendela tumbuh lebih subur daripada di sudut gelap.</li>
+            </ul>
+          </div>
+          <p class="outcome"><b>Bukti belajar:</b> alasan yang disampaikan peserta didik, bukan hanya jawaban akhirnya.</p>
+        </article>
+
+        <article class="card reveal" style="justify-content:flex-start">
+          <span class="card-id">Catatan</span>
+          <h3 style="font-size:1.35rem">Dua sisi yang tidak terpisah</h3>
+          <p>
+            Penerapan tanpa analisis mudah menjadi latihan hafal prosedur. Analisis tanpa penerapan
+            mudah menjadi diskusi yang melayang. Karena itu, satu tugas sebaiknya menuntut keduanya:
+            <em>kerjakan, lalu jelaskan mengapa caramu berhasil.</em>
+          </p>
+          <div class="example">
+            <span class="label">Rumusan tujuan gabungan</span>
+            <ul>
+              <li>“Peserta didik dapat menghitung total belanja (penerapan) dan menjelaskan strategi yang paling efisien (analisis).”</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 REFLEKSI -->
+  <section class="section" id="refleksi">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="sec-num">03</span>
+        <div>
+          <p class="eyebrow">Tujuan Refleksi &amp; Tindak Lanjut</p>
+          <h2>Belajar <em>tentang cara</em> belajar.</h2>
+          <p class="section-lead">
+            Peserta didik meninjau kembali pengalamannya: apa yang sudah dikuasai, apa yang belum,
+            dan apa yang akan dilakukan berikutnya. Refleksi membuat belajar menjadi sadar, bukan
+            kebetulan.
+          </p>
+        </div>
+      </div>
+
+      <div class="reflect-grid">
+        <article class="card reveal">
+          <span class="card-id">3a · Refleksi</span>
+          <h3>Merefleksi pembelajaran</h3>
+          <p>Dua pertanyaan inti yang sederhana, tetapi kuat:</p>
+          <ul class="prompt-list">
+            <li><span>01</span>Apa yang saya bisa hari ini?</li>
+            <li><span>02</span>Apa yang belum saya bisa hari ini?</li>
+          </ul>
+          <div class="example" style="margin-top:1.2rem">
+            <span class="label">Cara praktis di kelas 3 SD</span>
+            <ul>
+              <li><b>Kartu refleksi</b> — dua kolom: “sudah bisa” dan “masih latihan”, diisi dengan gambar atau satu kalimat.</li>
+              <li><b>Tiket keluar</b> — sebelum pulang, tiap peserta didik menulis satu hal yang dipahami dan satu pertanyaan.</li>
+              <li><b>Isyarat jempol</b> — jempol ke atas, tengah, atau bawah untuk menandai tingkat keyakinan, lalu dua siswa menjelaskan alasannya.</li>
+              <li><b>Bercerita berpasangan</b> — “Ceritakan pada temanmu satu hal yang tadi sulit, dan bagaimana kamu mencobanya.”</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <span class="card-id">3b · Tindak Lanjut</span>
+          <h3>Membuat karya berbeda dengan cara yang sama</h3>
+          <p>
+            Setelah memahami sebuah cara atau teknik, peserta didik menggunakannya kembali untuk
+            menghasilkan karya baru yang berbeda. Ini bukti bahwa yang dipelajari benar-benar
+            berpindah, bukan terikat pada satu tugas.
+          </p>
+          <div class="example">
+            <span class="label">Contoh kelas 3 SD</span>
+            <ul>
+              <li>Setelah membuat kolase daun, peserta didik membuat kartu ucapan dengan teknik menempel yang sama.</li>
+              <li>Setelah menulis paragraf deskripsi tentang kelas, peserta didik menulis deskripsi tentang hewan peliharaan.</li>
+              <li>Setelah belajar pecahan dengan kertas lipat, peserta didik menjelaskan pecahan menggunakan potongan buah.</li>
+              <li>Setelah memeragakan cara mencuci tangan, peserta didik membuat poster langkahnya untuk dipasang di kamar mandi sekolah.</li>
+            </ul>
+          </div>
+          <p class="outcome"><b>Bukti belajar:</b> karya atau unjuk kerja baru yang menunjukkan cara yang sama dipakai pada konteks berbeda.</p>
+        </article>
+      </div>
+
+      <div class="transfer reveal">
+        <div>
+          <p class="eyebrow">Alur tindak lanjut</p>
+          <h3>Dari refleksi menuju karya berikutnya</h3>
+          <p style="font-size:.95rem;color:#3d3a31;margin:0">
+            Refleksi tanpa tindak lanjut hanya menjadi catatan. Tindak lanjut tanpa refleksi hanya
+            menjadi tugas tambahan. Keduanya perlu dirangkai dalam satu alur pendek.
+          </p>
+        </div>
+        <ol class="steps">
+          <li><b>Renungkan</b> — peserta didik menandai apa yang sudah dan belum dikuasai.</li>
+          <li><b>Pilih fokus</b> — satu hal yang ingin diperbaiki atau dilatih lagi.</li>
+          <li><b>Buat karya baru</b> — gunakan cara yang sama pada bahan, tema, atau situasi berbeda.</li>
+          <li><b>Bagikan</b> — ceritakan prosesnya kepada teman atau guru, lalu catat masukan.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTOH KELAS 3 SD -->
+  <section class="section" id="kelas3">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="sec-num">04</span>
+        <div>
+          <p class="eyebrow">Contoh utuh</p>
+          <h2>Satu pertemuan, tiga tujuan: <em>pecahan sederhana</em>.</h2>
+          <p class="section-lead">
+            Matematika kelas 3 SD, materi pecahan ½, ⅓, dan ¼. Perhatikan bagaimana ketiga tujuan
+            pembelajaran muncul dalam satu rangkaian kegiatan yang wajar untuk anak usia 8–9 tahun.
+          </p>
+        </div>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table>
+          <caption>Pemetaan tujuan → kegiatan → bukti belajar</caption>
+          <thead>
+            <tr>
+              <th scope="col">Tujuan pembelajaran</th>
+              <th scope="col">Kegiatan di kelas</th>
+              <th scope="col">Bukti belajar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Pemahaman — materi konten<small>Definisi pecahan</small></th>
+              <td>Guru menunjukkan satu kertas lingkaran utuh, lalu melipatnya menjadi dua bagian sama besar. Peserta didik menyebutkan bahwa satu bagian disebut ½ dari keseluruhan.</td>
+              <td>Peserta didik menjelaskan arti ½ dengan bahasa sendiri dan menunjukkan bagian yang dimaksud.</td>
+            </tr>
+            <tr>
+              <th scope="row">Pemahaman — prosedur<small>Melipat dan menandai</small></th>
+              <td>Peserta didik mengikuti langkah: lipat kertas menjadi dua, empat, lalu tiga bagian sama besar; beri garis lipatan; tuliskan pecahannya.</td>
+              <td>Kertas lipat rapi dengan bagian sama besar dan label pecahan yang benar.</td>
+            </tr>
+            <tr>
+              <th scope="row">Pemahaman — karakter<small>Teliti dan jujur</small></th>
+              <td>Kesepakatan kelas: bila lipatan belum sama besar, ulangi tanpa menyembunyikan hasilnya.</td>
+              <td>Peserta didik memperbaiki lipatannya sendiri dan berterus terang saat hasilnya belum tepat.</td>
+            </tr>
+            <tr>
+              <th scope="row">Aplikasi — penerapan<small>Menggunakan pecahan</small></th>
+              <td>Setiap kelompok menerima satu roti atau buah (atau gambar), lalu membaginya untuk 2, 3, dan 4 anggota secara adil.</td>
+              <td>Setiap anggota menerima bagian yang sama; peserta didik menuliskan pecahan bagiannya.</td>
+            </tr>
+            <tr>
+              <th scope="row">Aplikasi — analisis<small>Membandingkan</small></th>
+              <td>Pertanyaan: “Mana yang lebih besar, ⅓ atau ¼? Mengapa?” Peserta didik membandingkan hasil lipatan dan ukuran potongan.</td>
+              <td>Alasan yang disampaikan, misalnya: “makin banyak bagian, makin kecil tiap potongnya.”</td>
+            </tr>
+            <tr>
+              <th scope="row">Refleksi<small>Menyadari kemajuan</small></th>
+              <td>Kartu refleksi: “Apa yang saya bisa hari ini? Apa yang belum saya bisa hari ini?”</td>
+              <td>Catatan peserta didik, misalnya: “Saya bisa melipat jadi empat. Saya masih bingung menulis ⅓.”</td>
+            </tr>
+            <tr>
+              <th scope="row">Tindak lanjut<small>Karya berbeda, cara sama</small></th>
+              <td>Peserta didik membuat “piring pecahan” dari kertas warna untuk dibawa pulang, lalu menjelaskan pecahannya kepada keluarga.</td>
+              <td>Karya baru dengan teknik lipat dan bagi yang sama, disertai penjelasan lisan di rumah.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="phase">
+          <span>Pendahuluan · 10 menit</span>
+          <h4>Membangun rasa ingin tahu</h4>
+          <p>Guru membawa satu kue atau roti dan bertanya: “Bagaimana membaginya adil untuk empat orang?”</p>
+        </div>
+        <div class="phase">
+          <span>Inti · 50 menit</span>
+          <h4>Memahami, mencoba, menganalisis</h4>
+          <p>Lipat kertas bersama, berlatih membagi benda, lalu berdiskusi membandingkan besar pecahan.</p>
+        </div>
+        <div class="phase">
+          <span>Penutup · 15 menit</span>
+          <h4>Refleksi dan rencana karya</h4>
+          <p>Kartu refleksi diisi, guru mencatat kebutuhan latihan, dan tugas “piring pecahan” dijelaskan.</p>
+        </div>
+      </div>
+
+      <div class="note reveal">
+        <strong>Perhatikan</strong>
+        <p>
+          Ketiga tujuan tidak harus muncul sebagai tiga kegiatan terpisah. Pada contoh di atas, satu
+          aktivitas melipat kertas sekaligus melatih pemahaman prosedur, karakter teliti, penerapan,
+          dan analisis. Yang penting, guru tahu tujuan mana yang sedang ditumbuhkan pada setiap
+          langkah pembelajaran.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATATAN -->
+  <section class="section" id="catatan">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="sec-num">05</span>
+        <div>
+          <p class="eyebrow">Panduan singkat</p>
+          <h2>Merumuskan tujuan yang <em>dapat dilihat</em>.</h2>
+          <p class="section-lead">
+            Tujuan pembelajaran yang baik dapat dikenali dari perilaku yang tampak. Gunakan daftar
+            periksa berikut saat menyusun atau meninjau RPP.
+          </p>
+        </div>
+      </div>
+
+      <ul class="checklist reveal">
+        <li>Menggunakan kata kerja yang teramati: menjelaskan, membandingkan, membagi, menunjukkan, membuat.</li>
+        <li>Menyebutkan konteks atau materi secara spesifik, bukan “memahami materi” secara umum.</li>
+        <li>Menyeimbangkan pengetahuan, keterampilan, dan sikap dalam satu pertemuan.</li>
+        <li>Menyertakan bukti belajar yang jelas: hasil kerja, penjelasan lisan, atau karya.</li>
+        <li>Menyediakan waktu refleksi di akhir pembelajaran, bukan hanya bila ada sisa waktu.</li>
+        <li>Merancang satu tindak lanjut sederhana yang dapat dikerjakan peserta didik sendiri.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing">
+    <div class="wrap">
+      <p class="kicker">Inti dari ketiganya</p>
+      <blockquote>Belajar mendalam adalah saat anak <em>mengerti</em>, <em>menggunakan</em>, dan <em>menyadari</em>.</blockquote>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>Tiga Tujuan Pembelajaran dalam RPP Deep Learning</span>
+    <span>Panduan praktis untuk guru kelas 3 SD</span>
+  </div>
+</footer>
+
+<script>
+  // progress bar
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // reveal on scroll
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // scrollspy
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var sections = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var i = sections.indexOf(e.target);
+        if (i < 0) return;
+        links.forEach(function (l) { l.classList.remove('active'); });
+        links[i].classList.add('active');
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    sections.forEach(function (s) { if (s) spy.observe(s); });
+  }
+</script>
+</body>
+</html>
