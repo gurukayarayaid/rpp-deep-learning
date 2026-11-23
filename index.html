@@ -215,6 +215,20 @@
     display: grid; place-items: center; font-size: .7rem; color: var(--muted);
   }
 
+  /* ---------- contoh utuh ---------- */
+  .ex-block + .ex-block {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    border-top: 1px solid var(--line);
+  }
+  .ex-head { margin-bottom: 1.5rem; }
+  .ex-head .eyebrow { color: var(--clay); margin-bottom: .4rem; }
+  .ex-head h3 {
+    font-family: var(--serif); font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+    line-height: 1.08; letter-spacing: -.015em;
+  }
+  .ex-head .ex-sub { margin: .65rem 0 0; color: var(--muted); font-size: .93rem; max-width: 62ch; }
+
   /* ---------- table ---------- */
   .table-wrap { overflow-x: auto; border: 1px solid var(--line); background: var(--paper); }
   table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: .93rem; }
@@ -583,17 +597,24 @@
         <span class="sec-num">04</span>
         <div>
           <p class="eyebrow">Contoh utuh</p>
-          <h2>Satu pertemuan, tiga tujuan: <em>pecahan sederhana</em>.</h2>
+          <h2>Dua pertemuan, tiga tujuan: <em>pecahan</em> dan <em>paragraf</em>.</h2>
           <p class="section-lead">
-            Matematika kelas 3 SD, materi pecahan ½, ⅓, dan ¼. Perhatikan bagaimana ketiga tujuan
-            pembelajaran muncul dalam satu rangkaian kegiatan yang wajar untuk anak usia 8–9 tahun.
+            Dua contoh berikut memakai format yang sama — tujuan, kegiatan, bukti belajar — pada dua
+            mata pelajaran berbeda. Cara kerjanya tetap; yang berganti hanya isi dan konteksnya.
           </p>
         </div>
       </div>
 
-      <div class="table-wrap reveal">
-        <table>
-          <caption>Pemetaan tujuan → kegiatan → bukti belajar</caption>
+      <div class="ex-block reveal">
+        <header class="ex-head">
+          <p class="eyebrow">Contoh 1 · Matematika</p>
+          <h3>Pecahan sederhana: ½, ⅓, dan ¼</h3>
+          <p class="ex-sub">Kelas 3 SD, satu pertemuan 75 menit. Materi: mengenal dan membandingkan pecahan sederhana.</p>
+        </header>
+
+        <div class="table-wrap">
+          <table>
+            <caption>Pemetaan tujuan → kegiatan → bukti belajar</caption>
           <thead>
             <tr>
               <th scope="col">Tujuan pembelajaran</th>
@@ -641,7 +662,7 @@
         </table>
       </div>
 
-      <div class="timeline reveal">
+      <div class="timeline">
         <div class="phase">
           <span>Pendahuluan · 10 menit</span>
           <h4>Membangun rasa ingin tahu</h4>
@@ -659,7 +680,7 @@
         </div>
       </div>
 
-      <div class="note reveal">
+      <div class="note">
         <strong>Perhatikan</strong>
         <p>
           Ketiga tujuan tidak harus muncul sebagai tiga kegiatan terpisah. Pada contoh di atas, satu
@@ -667,6 +688,92 @@
           dan analisis. Yang penting, guru tahu tujuan mana yang sedang ditumbuhkan pada setiap
           langkah pembelajaran.
         </p>
+      </div>
+      </div>
+
+      <div class="ex-block reveal">
+        <header class="ex-head">
+          <p class="eyebrow">Contoh 2 · Bahasa Indonesia</p>
+          <h3>Menulis paragraf deskripsi</h3>
+          <p class="ex-sub">Kelas 3 SD, satu pertemuan 75 menit. Materi: menulis paragraf deskripsi 3–5 kalimat tentang benda di sekitar.</p>
+        </header>
+
+        <div class="table-wrap">
+          <table>
+            <caption>Pemetaan tujuan → kegiatan → bukti belajar</caption>
+            <thead>
+              <tr>
+                <th scope="col">Tujuan pembelajaran</th>
+                <th scope="col">Kegiatan di kelas</th>
+                <th scope="col">Bukti belajar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Pemahaman — materi konten<small>Ciri paragraf deskripsi</small></th>
+                <td>Guru membacakan dua teks pendek tentang kucing: satu berisi cerita, satu menggambarkan kucing tanpa kejadian. Peserta didik menandai kalimat yang membuat mereka seolah melihat kucing itu.</td>
+                <td>Peserta didik menyebutkan ciri paragraf deskripsi: menggambarkan satu objek, melibatkan pancaindra, banyak memakai kata sifat.</td>
+              </tr>
+              <tr>
+                <th scope="row">Pemahaman — prosedur<small>Lima langkah menulis</small></th>
+                <td>Bersama-sama menyusun langkah di papan tulis: pilih objek → amati dengan pancaindra → catat kata kunci → susun 3–5 kalimat → sunting ejaan dan huruf kapital.</td>
+                <td>Urutan langkah dipasang di dinding kelas dan dipakai saat menulis; draf menunjukkan alur tersebut.</td>
+              </tr>
+              <tr>
+                <th scope="row">Pemahaman — karakter<small>Jujur dan teliti</small></th>
+                <td>Kesepakatan kelas: menulis sesuai yang benar-benar diamati, tidak menyalin pekerjaan teman, dan memeriksa ejaan sebelum mengumpulkan.</td>
+                <td>Draf memuat ciri objek hasil pengamatan sendiri; peserta didik memperbaiki ejaannya tanpa disuruh.</td>
+              </tr>
+              <tr>
+                <th scope="row">Aplikasi — penerapan<small>Menulis draf</small></th>
+                <td>Setiap peserta didik memilih satu benda di kelas (tempat pensil, pot bunga, sapu), mengamatinya lima menit, lalu menulis 3–5 kalimat.</td>
+                <td>Paragraf 3–5 kalimat tentang satu objek yang cukup jelas sehingga teman dapat menebaknya.</td>
+              </tr>
+              <tr>
+                <th scope="row">Aplikasi — analisis<small>Menguji dan menyunting</small></th>
+                <td>Paragraf ditukar dengan teman. Teman menebak objeknya; bila tebakan meleset, penulis mencari kalimat yang kurang jelas dan memperbaikinya. Diskusi: kata sifat mana yang paling membantu?</td>
+                <td>Perbaikan pada kalimat tertentu disertai alasan, misalnya: “Saya tambahkan ‘berwarna biru’ supaya jelas.”</td>
+              </tr>
+              <tr>
+                <th scope="row">Refleksi<small>Menyadari kemajuan</small></th>
+                <td>Kartu refleksi: “Apa yang saya bisa hari ini? Apa yang belum saya bisa hari ini?”</td>
+                <td>Catatan peserta didik, misalnya: “Saya bisa menulis empat kalimat. Saya masih bingung menaruh titik.”</td>
+              </tr>
+              <tr>
+                <th scope="row">Tindak lanjut<small>Karya berbeda, cara sama</small></th>
+                <td>Peserta didik menulis deskripsi hewan peliharaan atau tempat favorit di sekolah untuk “Buku Kelas: Hewan Kesayanganku” atau mading.</td>
+                <td>Paragraf baru tentang objek berbeda, ditulis dengan langkah yang sama dan disertai gambar.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="timeline">
+          <div class="phase">
+            <span>Pendahuluan · 10 menit</span>
+            <h4>Mengasah pancaindra</h4>
+            <p>Guru memasukkan satu benda ke dalam kantong kain. Peserta didik bertanya: “Apakah keras? Berwarna apa? Bagaimana permukaannya?” lalu menebak bendanya.</p>
+          </div>
+          <div class="phase">
+            <span>Inti · 50 menit</span>
+            <h4>Mengamati, menulis, menyunting</h4>
+            <p>Setiap peserta didik mengamati satu benda di kelas, mencatat kata kunci, menulis draf, lalu bertukar paragraf untuk ditebak dan disunting.</p>
+          </div>
+          <div class="phase">
+            <span>Penutup · 15 menit</span>
+            <h4>Refleksi dan karya berikutnya</h4>
+            <p>Kartu refleksi diisi, guru mencatat siapa yang masih perlu bantuan menyusun kalimat, dan tugas “Buku Kelas” dijelaskan.</p>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>Perhatikan</strong>
+          <p>
+            Menyunting berpasangan sekaligus melayani tiga tujuan: penerapan (menulis ulang kalimat),
+            analisis (menemukan kalimat yang belum jelas), dan karakter (jujur menerima masukan,
+            teliti memeriksa ejaan). Satu kegiatan, tiga tujuan — tanpa menambah waktu.
+          </p>
+        </div>
       </div>
     </div>
   </section>
